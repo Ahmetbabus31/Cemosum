@@ -8,73 +8,35 @@
     body {
       margin: 0;
       height: 100vh;
-      background: linear-gradient(to top right, #ffd6e0, #ffe6f0);
       font-family: 'Comic Sans MS', cursive;
+      background: url("cemoliş.jpg") no-repeat center center fixed;
+      background-size: cover;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      overflow: hidden;
     }
 
     .box {
-      background: white;
+      background: rgba(255, 255, 255, 0.85);
       padding: 30px;
       border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       max-width: 400px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      color: #e60073;
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      font-weight: bold;
     }
 
     button {
       background-color: #e60073;
       color: white;
       padding: 15px 25px;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-bottom: 20px;
-    }
-
-    button:hover {
-      background-color: #ff3385;
-    }
-
-    .hidden-message {
-      display: none;
-      font-size: 1em;
-      color: #e60073;
-      line-height: 1.5;
-      text-shadow: 1px 1px #ffb3c6;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="box">
-    <button onclick="showMessageAndPlayMusic()">
-      Buraya Bas Cemoş 💖
-    </button>
-    <p id="message" class="hidden-message">
-      Cemoş seni çok seviyorum. Senin için gece 3'te bu siteyi hazırladım.  
-      Her şeyden çok seviyorum, sadece senin için yaptım bebeğim benim.  
-      Şu an uyuyorsun ama seni düşünüp hazırladım.  
-      Çok seviyorum seni. 💖
-    </p>
-  </div>
-
-  <!-- Müzik (Butonla Başlatılır) -->
-  <audio id="muzik" loop>
-    <source src="Cengiz Kurtoğlu - Liselim [Yüksek Kalite].mp3" type="audio/mpeg">
-    Tarayıcın müziği desteklemiyor.
-  </audio>
-
-  <script>
-    function showMessageAndPlayMusic() {
-      document.getElementById('message').style.display = 'block';
-      document.getElementById('muzik').play();
-    }
-  </script>
-
-</body>
-</html>
