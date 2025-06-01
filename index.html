@@ -16,6 +16,7 @@
       align-items: center;
       flex-direction: column;
       overflow: hidden;
+      position: relative;
     }
 
     .box {
@@ -25,13 +26,18 @@
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       max-width: 400px;
-      position: relative;
-      z-index: 1;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      color: #ff0066;
+      margin-bottom: 10px;
     }
 
     h2 {
       color: #e60073;
-      font-size: 1.5em;
+      font-size: 1.4em;
       margin-bottom: 20px;
       font-weight: bold;
     }
@@ -40,3 +46,89 @@
       background-color: #e60073;
       color: white;
       padding: 15px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #cc005f;
+    }
+
+    /* Kalp yağmuru */
+    .heart {
+      position: absolute;
+      top: -50px;
+      font-size: 24px;
+      color: #ff3399;
+      animation: fall 5s linear infinite;
+      user-select: none;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    /* Zıplayan kedi */
+    .cat {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      width: 80px;
+      animation: bounce 2s infinite alternate ease-in-out,
+                 move 6s infinite linear;
+      z-index: 3;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-20px); }
+    }
+
+    @keyframes move {
+      0% { left: 0; }
+      50% { left: calc(100% - 80px); }
+      100% { left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>SENI ÇOK SEVIYOM CEMOS 💘</h1>
+    <h2>Canım Cemoşum 💖</h2>
+    <p>Seni çok ama çok seviyorum! Bu sayfa senin için 💫</p>
+    <button onclick="alert('Ben de seni seviyorum! 😘')">Bana tıkla!</button>
+  </div>
+
+  <!-- Kalpler -->
+  <script>
+    const createHeart = () => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+      heart.innerText = '❤️';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    };
+
+    setInterval(createHeart, 300);
+  </script>
+
+  <!-- Zıplayan Kedi -->
+  <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Kedi" class="cat">
+</body>
+</html>
